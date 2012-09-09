@@ -5,7 +5,7 @@ get '/' do
 end
 
 get '/scrape' do
-    load 'cat_scraper.rb'
+    load './cat_scraper.rb'
 end
 
 
