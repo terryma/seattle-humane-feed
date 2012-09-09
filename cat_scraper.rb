@@ -41,8 +41,9 @@ doc.css('div.pet_search_right').each do |c|
     cat[:last_available] = Time.now.utc
 
     # See if this cat already exists
+    puts "checking cat with id #{cat[:id]}"
     db_cat = cats.where(id:cat[:id])
-    if (db_cat)
+    if not db_cat.empty?
         # update the last available time
         db_cat.update(last_available: Time.now.utc)
     else
@@ -53,11 +54,11 @@ doc.css('div.pet_search_right').each do |c|
                     first_available: cat[:first_available],
                     last_available: cat[:last_available]
                    )
+        body << "<p><a href='#{cat[:link]}'>#{cat[:name]}</a></p>"
     end
-    body << "<p><a href='#{cat[:link]}'>#{cat[:name]}</a></p>"
 end
 
 puts "total cats = #{cats.count}"
-Pony.mail(to: 'zhenchuan.ma@gmail.com', 
-          html_body: body)
+puts "email body: #{body}"
+Pony.mail(to: 'zhenchuan.ma@gmail.com', html_body: body) unless body.empty?
 
