@@ -60,5 +60,5 @@ end
 
 puts "total cats = #{cats.count}"
 puts "email body: #{body}"
-Pony.mail(to: 'zhenchuan.ma@gmail.com', html_body: body) unless body.empty?
+Pony.mail(to: 'zhenchuan.ma@gmail.com, chloeqin95@gmail.com', html_body: body) unless body.empty?
 
