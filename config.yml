@@ -1,0 +1,5 @@
+development:
+    email: zhenchuan.ma@gmail.com
+
+production:
+    email: zhenchuan.ma@gmail.com, chloeqin95@gmail.com
